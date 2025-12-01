@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+
+  qread:
+    image: linmax/read:latest
+    container_name: qread
+    restart: unless-stopped
+    ports:
+      - "15432:8080"                     #根据需求设置
+    volumes:
+      - ./appdata:/app
+    environment:
+      TZ: Asia/Shanghai                 #设置时区为上海
+
+      # =========== 数据库设置 ===========
+      DB_TYPE: sqlite                   #设置为mysql时数据库设置生效，设置为sqlite时数据库设置不生效
+
+
+      # =========== admin 用户设置 ===========
+      #ADMIN_GONGGAO: 这是一个公告        #填写公告后 app 每次开启时都会弹出
+      ADMIN_USERNAME: ${qreader_admin_username}          #后台管理员账户
+      ADMIN_PASSWORD: ${qreader_admin_password}        #后台管理员密码
+      #3.1.0更新配置信息
+      #ADMIN_CODE:                       # 需要填写app管理后台生成的密钥
+
+      # =========== user 设置 ===========
+      USER_ALLOWCHANGE: "${qreader_user_allowchange}"         #是否允许自助修改权限 允许 true 不允许 false
+      USER_ALLOWUPTXT: "${qreader_user_allowuptxt}"          #是否允许上传txt 允许 true 不允许 false
+      USER_ALLOWCACHE: "${qreader_user_allowcache}"          #是否允许添加缓存 允许 true 不允许 false
+      USER_ALLOWIMG: "${qreader_user_allowimg}"            #是否使用图片解密 允许 true 不允许 false
+      USER_ALLOWCHECK: "${qreader_user_allowcheck}"          #是否允许检验书源 允许 true 不允许 false
+      USER_SOURCE: "${qreader_user_source}"                  # 0: 不允许修改书源, 1: 允许后台修改, 2: 独立书源
+      USER_MAXSOURCE: "${qreader_user_maxsource}"               # 最大书源数量，0 表示不限制
+      USER_TIMEOUT: "${qreader_user_timeout}"                 #10分钟内除发多少次timeout禁用书源 0 为不限制
+      #3.2.0新增配置信息
+      USER_PROXYPNG: "false"             #是否代理封面
+
+      #===========  SMTP 邮件设置 ===========
+      #SMTP_HOST:                       #smtp邮箱host
+      #SMTP_PROTOCOLS: TLSv1.2          #通讯协议
+      #SMTP_PORT:                       #端口
+      #SMTP_ACCOUNT:                    #邮箱账号
+      #SMTP_PASSWORD:                   #邮箱密码，部分邮箱是安全码
+      #SMTP_PERSONAL:                   #发送人的昵称
+      #SMTP_CODESUBJECT: 验证码          #验证码邮件的主题
+      # =========== 默认设置 ===========
+      #DEFAULT_TTS:                     #默认tts链接
+      #DEFAULT_RULE:                    #默认净化链接
+      # =========== HTTP 线程设置 ===========
+      SERVER_HTTP_CORETHREADS: x5       #默认线程
+      SERVER_HTTP_MAXTHREADS: x10       #最大线程
+      # =========== 日志输出 ===========
+      #如果不想日志输出到文件请把下面配置去除注解(3.3.0新增配置信息)
+      #DISABLE_LOG_TO_FILE: true
+      # =========== 启动命令（必填：二选一）===========
+      JAVA_CMD: java -jar /app/read.jar  #不使用代理启动
+      #JAVA_CMD:  java  -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1080 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1080 -jar /app/read.jar       #使用代理启动

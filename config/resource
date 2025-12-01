@@ -1,0 +1,38 @@
+{
+    "docker-project":
+    {
+        "projects":
+        [
+            {
+                "name": "read",
+                "path": "docker"
+            }
+        ]
+    },
+    "data-share":
+    {
+        "shares":
+        [
+            {
+                "name": "read",
+                "permission":
+                {
+                    "rw":
+                    [
+                        "docker-qead"
+                    ]
+                }
+            },
+            {
+                "name": "read/data",
+                "permission":
+                {
+                    "rw":
+                    [
+                        "docker-read"
+                    ]
+                }
+            }
+        ]
+    }
+}

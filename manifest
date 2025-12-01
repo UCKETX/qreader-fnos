@@ -1,0 +1,22 @@
+appname               = read
+version               = 3.3.3
+display_name          = 轻阅读
+desc = """
+<p><b>轻阅读</b> —— 一个专为移动端设计的轻量级阅读应用，支持多端同步，让阅读体验更流畅、更自由。</p>
+<ul>
+  <li>📱 全移动端可用，界面简洁直观</li>
+  <li>☁️ 多端同步阅读进度，不丢章节 不重来</li>
+  <li>🌓 支持深色模式与字体自定义</li>
+  <li>📚 支持 txt/epub 等多种书籍格式</li>
+</ul>
+<p>后台管理页面：<a href="http://ip:15432/admin" target="_blank">http://ip:15432/admin</a></p>
+<p>客户端下载：<a href="https://github.com/autobcb/read/releases/tag/3.3.3" target="_blank">https://github.com/autobcb/read/releases/tag/3.3.3</a></p>
+"""
+arch                  = x86_64
+source                = thirdparty
+maintainer            = autobcb
+maintainer_url        = https://github.com/autobcb/read
+distributor           = UCKET
+distributor_url       = https://github.com/UCKETX/qreader-fnos
+desktop_uidir         = ui
+desktop_applaunchname = read.Application

@@ -1,0 +1,134 @@
+[
+    {
+        "stepTitle": "创建管理员账号",
+        "items": [
+            {
+                "type": "text",
+                "field": "qreader_admin_username",
+                "label": "管理员用户名",
+                "initValue": "admin",
+                "rules": [
+                    {
+                        "required": true,
+                        "message": "请输入管理员用户名"
+                    },
+                    {
+                        "pattern": "^[a-zA-Z0-9_]+$",
+                        "message": "用户名只能包含字母、数字和下划线"
+                    }
+                ]
+            },
+            {
+                "type": "password",
+                "field": "qreader_admin_password",
+                "label": "管理员密码",
+                "rules": [
+                    {
+                        "required": true,
+                        "message": "请输入管理员密码"
+                    },
+                    {
+                        "min": 8,
+                        "message": "密码长度不能少于8位"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "stepTitle": "用户设置",
+        "items": [
+            {
+                "type": "switch",
+                "field": "qreader_user_allowchange",
+                "label": "允许自助修改权限",
+                "initValue": "true"
+            },
+            {
+                "type": "switch",
+                "field": "qreader_user_allowuptxt",
+                "label": "允许上传txt",
+                "initValue": "true"
+            },
+            
+            {
+                "type": "switch",
+                "field": "qreader_user_allowcache",
+                "label": "允许添加缓存",
+                "initValue": "true"
+            },
+            
+            {
+                "type": "switch",
+                "field": "qreader_user_allowimg",
+                "label": "使用图片解密",
+                "initValue": "true"
+            },
+            {
+                "type": "switch",
+                "field": "qreader_user_allowcheck",
+                "label": "允许检验书源",
+                "initValue": "true"
+            },
+            {
+                "type": "radio",
+                "field": "qreader_user_source",
+                "label": "允许修改书源",
+                "initValue": "0",
+                "options": [
+                    {
+                        "label": "不允许",
+                        "value": "0"
+                    },
+                    {
+                        "label": "允许",
+                        "value": "1"
+                    },
+                    {
+                        "label": "独立书源",
+                        "value": "2"
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "field": "qreader_user_maxsource",
+                "label": "最大书源数量",
+                "initValue": "0",
+                "rules": [
+                    {
+                        "required": true,
+                        "message": "请输入最大书源数量"
+                    },
+                    {
+                        "pattern": "^[0-9]+$",
+                        "message": "最大书源数量只能包含数字"
+                    }
+                ],
+                "helpText": "0 表示不限制"
+            },
+            {
+                "type": "text",
+                "field": "qreader_user_timeout",
+                "label": "10分钟内触发多少次timeout禁用书源",
+                "initValue": "0",
+                "rules": [
+                    {
+                        "required": true,
+                        "message": "请输入10分钟内触发多少次timeout禁用书源"
+                    },
+                    {
+                        "pattern": "^[0-9]+$",
+                        "message": "10分钟内触发多少次timeout禁用书源只能包含数字"
+                    },
+                    {
+                        "min": 0,
+                        "message": "10分钟内触发多少次timeout禁用书源不能小于0"
+                    }
+                ],
+                "helpText": "0 表示不限制"
+            }
+            
+        ]
+    }
+]
