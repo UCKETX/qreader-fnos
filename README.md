@@ -1,6 +1,6 @@
 # 轻阅读 - 飞牛应用
 
-将 [轻阅读](https://github.com/autobcb/read) 轻阅读后端打包成飞牛 fnOS 应用。
+将 [轻阅读](https://github.com/autobcb/read) 后端打包成飞牛 fnOS 应用。
 
 ## 使用
 
