@@ -6,7 +6,7 @@
             "type": "url",
             "protocol": "http",
             "port": "15432",
-            "url": "/",
+            "url": "/admin",
             "allUsers": false
         }
     }
