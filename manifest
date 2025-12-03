@@ -11,6 +11,7 @@ desc = """
 </ul>
 <p>后台管理页面：<a href="http://ip:15432/admin" target="_blank">http://ip:15432/admin</a></p>
 <p>客户端下载：<a href="https://github.com/autobcb/read/releases/tag/3.3.3" target="_blank">https://github.com/autobcb/read/releases/tag/3.3.3</a></p>
+<p style="color:#e67e22;">⚠️提示：安装失败时请检查 Docker 站点的连接性，镜像下载失败请配置镜像代理。</p>
 """
 arch                  = x86_64
 source                = thirdparty
