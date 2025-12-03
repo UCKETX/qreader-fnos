@@ -20,3 +20,4 @@ distributor           = UCKET
 distributor_url       = https://github.com/UCKETX/qreader-fnos
 desktop_uidir         = ui
 desktop_applaunchname = read.Application
+service_port          = 15432
